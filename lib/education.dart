@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,7 +10,7 @@ class EducationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Vx.green700,
+        color: Colors.transparent,
         height: context.isMobile ? 500 : 550,
         child: Column(
           children: [
@@ -27,14 +29,10 @@ class EducationScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Card(
                               elevation: 10,
-                              color: Vx.green900,
+                              color: Colors.transparent,
                               borderOnForeground: false,
                               child: ExpansionCard(
-                                leading: CircleAvatar(
-                                  radius: 30,
-                                  backgroundImage: AssetImage("images/mit.jpg"),
-                                ),
-                                backgroundColor: Vx.green900,
+                                backgroundColor: Colors.transparent,
                                 borderRadius: 100,
                                 title: Container(
                                   child: Column(
@@ -80,15 +78,10 @@ class EducationScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Card(
                               elevation: 10,
-                              color: Vx.green900,
+                              color: Colors.transparent,
                               borderOnForeground: false,
                               child: ExpansionCard(
-                                leading: CircleAvatar(
-                                  radius: 30,
-                                  backgroundImage:
-                                      AssetImage("images/inter.jpg"),
-                                ),
-                                backgroundColor: Vx.green900,
+                                backgroundColor: Colors.transparent,
                                 borderRadius: 100,
                                 title: Container(
                                   child: Column(
@@ -134,15 +127,10 @@ class EducationScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Card(
                               elevation: 10,
-                              color: Vx.green900,
+                              color: Colors.transparent,
                               borderOnForeground: false,
                               child: ExpansionCard(
-                                leading: CircleAvatar(
-                                  radius: 30,
-                                  backgroundImage:
-                                      AssetImage("images/highschool.jpg"),
-                                ),
-                                backgroundColor: Vx.green900,
+                                backgroundColor: Colors.transparent,
                                 borderRadius: 100,
                                 title: Container(
                                   child: Column(
@@ -192,12 +180,12 @@ class EducationScreen extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                color: Vx.green900),
+                                color: Colors.transparent),
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(left: 200, right: 200),
                               child: Card(
-                                color: Vx.green900,
+                                color: Colors.transparent,
                                 child: ExpansionCard(
                                   trailing: Text(
                                     "Details",
@@ -209,7 +197,7 @@ class EducationScreen extends StatelessWidget {
                                     backgroundImage:
                                         AssetImage("images/mit.jpg"),
                                   ),
-                                  backgroundColor: Vx.green900,
+                                  backgroundColor: Colors.transparent,
                                   title: Container(
                                     child: Column(
                                       crossAxisAlignment:
@@ -259,24 +247,24 @@ class EducationScreen extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                color: Vx.green900),
+                                color: Colors.transparent),
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(left: 200, right: 200),
                               child: Card(
-                                color: Vx.green900,
+                                color: Colors.transparent,
                                 child: ExpansionCard(
                                   trailing: Text(
                                     "Details",
                                     style: TextStyle(
                                         fontSize: 30, color: Colors.white),
                                   ),
-                                  leading: CircleAvatar(
-                                    radius: 40,
-                                    backgroundImage:
-                                        AssetImage("images/inter.jpg"),
-                                  ),
-                                  backgroundColor: Vx.green900,
+                                  // leading: CircleAvatar(
+                                  //   radius: 40,
+                                  //   backgroundImage:
+                                  //       AssetImage("images/inter.jpg"),
+                                  // ),
+                                  backgroundColor: Colors.transparent,
                                   title: Container(
                                     child: Column(
                                       crossAxisAlignment:
@@ -326,24 +314,24 @@ class EducationScreen extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                color: Vx.green900),
+                                color: Colors.transparent),
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(left: 200, right: 200),
                               child: Card(
-                                color: Vx.green900,
+                                color: Colors.transparent,
                                 child: ExpansionCard(
                                   trailing: Text(
                                     "Details",
                                     style: TextStyle(
                                         fontSize: 30, color: Colors.white),
                                   ),
-                                  leading: CircleAvatar(
-                                    radius: 40,
-                                    backgroundImage:
-                                        AssetImage("images/highschool.jpg"),
-                                  ),
-                                  backgroundColor: Vx.green900,
+                                  // leading: CircleAvatar(
+                                  //   radius: 40,
+                                  //   backgroundImage:
+                                  //       AssetImage("images/highschool.jpg"),
+                                  // ),
+                                  backgroundColor: Colors.transparent,
                                   title: Container(
                                     child: Column(
                                       crossAxisAlignment:
@@ -404,7 +392,8 @@ class ProjectWidget extends StatelessWidget {
         .box
         .p8
         .roundedLg
-        .neumorphic(color: Vx.green700, elevation: 5, curve: VxCurve.flat)
+        .neumorphic(
+            color: Colors.transparent, elevation: 5, curve: VxCurve.flat)
         .alignCenter
         .square(200)
         .make()

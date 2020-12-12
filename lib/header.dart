@@ -8,12 +8,11 @@ import 'package:velocity_x/velocity_x.dart';
 class HeaderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final nameWidget = "Amit    Singh"
+    final nameWidget = "Hi  I'm 👐\n Amit  Singh"
         .text
         .white
-        .xl6
         .lineHeight(1)
-        .size(context.isMobile ? 15 : 20)
+        .size(context.isMobile ? 23 : 25)
         .bold
         .make()
         .shimmer();
@@ -22,26 +21,34 @@ class HeaderScreen extends StatelessWidget {
               child: VStack([
         ZStack(
           [
-            PictureWidget(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: PictureWidget(),
+                ),
+              ],
+            ),
             Row(
               children: [
                 VStack([
-                  if (context.isMobile) 50.heightBox else 10.heightBox,
-                  CustomAppBar().shimmer(primaryColor: Coolors.accentColor),
-                  30.heightBox,
+                  if (context.isMobile) 30.heightBox else 30.heightBox,
+                  CustomAppBar().shimmer(primaryColor: Colors.transparent),
+                  20.heightBox,
                   nameWidget,
                   20.heightBox,
                   VxBox()
-                      .color(Coolors.accentColor)
+                      .color(Colors.transparent)
                       .size(60, 10)
                       .make()
                       .px4()
-                      .shimmer(primaryColor: Coolors.accentColor),
+                      .shimmer(primaryColor: Colors.transparent),
                   30.heightBox,
                   SocialAccounts(),
                 ]).pSymmetric(
-                  h: context.percentWidth * 10,
-                  v: 32,
+                  h: context.percentWidth * 5,
+                  v: 20,
                 ),
                 Expanded(
                   child: VxResponsive(
@@ -59,8 +66,8 @@ class HeaderScreen extends StatelessWidget {
           ],
         )
       ]))
-          .size(context.screenWidth, context.percentHeight * 60)
-          .color(Coolors.secondaryColor)
+          .size(context.screenWidth, context.percentHeight * 40)
+          .color(Colors.transparent)
           .make(),
     );
   }
@@ -87,11 +94,11 @@ class IntroductionWidget extends StatelessWidget {
               .w(context.isMobile
                   ? context.screenWidth
                   : context.percentWidth * 40),
-          20.heightBox,
+          25.heightBox,
         ].vStack(),
       ],
       // crossAlignment: CrossAxisAlignment.center,
-      alignment: MainAxisAlignment.spaceEvenly,
+      // alignment: MainAxisAlignment.spaceEvenly,
     );
   }
 }
@@ -118,14 +125,12 @@ class PictureWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Transform(
-      alignment: Alignment.center,
-      origin: Offset(context.percentWidth * 10, 0),
-      transform: Matrix4.rotationY(pi),
-      child: Image.asset(
+    return CircleAvatar(
+      radius: 100,
+      backgroundImage: AssetImage(
         "images/profile1.png",
-        fit: BoxFit.cover,
-        height: context.percentHeight * 60,
+        //fit: BoxFit.fill,
+        //height: context.percentHeight * 50,
       ),
     );
   }

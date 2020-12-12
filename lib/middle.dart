@@ -1,100 +1,127 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class MiddleScreen extends StatelessWidget {
+  Color baseColor = Color(0xFFF2F2F2);
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Vx.green900,
-      child: Flex(
-          direction: context.isMobile ? Axis.vertical : Axis.horizontal,
-          children: [
-            "All Creative works,\n"
-                .richText
-                .withTextSpanChildren(
-                    ["Selected projects.".textSpan.yellow400.make()])
-                .xl4
-                .white
-                .make(),
-            20.widthBox,
-            Expanded(
-                child: VxSwiper(
-              enlargeCenterPage: true,
-              scrollDirection: Axis.horizontal,
-              items: [
-                GestureDetector(
-                  onTap: () => launch(
-                    "https://play.google.com/store/apps/details?id=com.academic.master&hl=es_VE",
-                  ),
-                  child: ProjectWidget(title: "Academic Master"),
-                ),
-                GestureDetector(
-                  onTap: () => launch(
-                    "https://play.google.com/store/apps/details?id=com.yourshop.amitapps&hl=es_VE",
-                  ),
-                  child: ProjectWidget(title: "Your Shop"),
-                ),
-                GestureDetector(
-                  onTap: () => launch(
-                    "https://github.com/amitsingh6391/covid-tracker",
-                  ),
-                  child: ProjectWidget(title: "Covid tracker"),
-                ),
-                GestureDetector(
-                  onTap: () => launch(
-                    "https://github.com/amitsingh6391/Antichina",
-                  ),
-                  child: ProjectWidget(title: "Anti China"),
-                ),
-                GestureDetector(
-                  onTap: () => launch(
-                    "https://github.com/amitsingh6391/Myawesomecart",
-                  ),
-                  child: ProjectWidget(title: "My AwesomeCart"),
-                ),
-                GestureDetector(
-                  onTap: () => launch(
-                    "https://github.com/amitsingh6391/Railway-app-in-flutter",
-                  ),
-                  child: ProjectWidget(title: "Railway app"),
-                ),
-              ],
-              height: 170,
-              viewportFraction: context.isMobile ? 0.75 : 0.4,
-              autoPlay: true,
-              autoPlayInterval: Duration(
-                seconds: 3,
+    return Container(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("Projects",
+                    style: TextStyle(fontSize: 30, color: Colors.yellow)),
               ),
-              autoPlayAnimationDuration: 1.seconds,
-            ))
-          ]).p64().h(context.isMobile ? 500 : 300),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 38.0),
+            child: myproject(
+                "images/3.jfif",
+                "Academic Master",
+                "Academic Master is \nstudents most loved \nlearning app . We are on\n a mission for enable\n learning, the missing\n part of indian \neducation system.",
+                "https://github.com/amitsingh6391/Academic-master",
+                "https://play.google.com/store/apps/details?id=com.academic.master&hl=en&gl=US"),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 38.0),
+            child: myproject(
+                "images/2.jfif",
+                "Treato",
+                // "The Treato Partner App\n is to simplify the process of orders to partners &the entire process of ordering in, from confirming to preparation to delivery. The app create connect between our partners and Treato for ordering. This make sure that everything runs on modern technology, making it simpler than ever before to manage a takeaway business.",
+                "The Treato Partner App is to  \n  simplify the process of orders\n to partners &the entire\n process of ordering in,\n from confirming to \npreparation to delivery. \n This app create connect \n between our partners and \n Treato for ordering.",
+                "https://github.com/amitsingh6391/Vendor-Shop",
+                "https://play.google.com/store/apps/details?id=com.hst.treatovendor&hl=en&gl=US"),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 38.0),
+            child: myproject(
+                "images/1.jfif",
+                "Prerna Fruits &\n Vegetables",
+                "One-stop destination \n for buying farm-fresh, \n locally sourced fruits \n and vegetables! We are \n an eCommerce portal \n serving customers in \n Jodhpur with their daily\n grocery and fresh\n produce requirements. ",
+                "https://github.com/amitsingh6391/Prerna_Fruits_and_Vegetable_shop",
+                "https://play.google.com/store/apps/details?id=com.nf.e_commerce&hl=en&gl=US"),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 38.0),
+            child: myproject(
+                "images/4.jfif",
+                "Your Shop",
+                "Shop online by \nconnecting with those\n who want to sell! Find \nclothing ads, electronics\n or real estate deals on\nthe biggest new and\n used product shopping\n and sales platform on the\n market!",
+                "https://github.com/amitsingh6391/yourshop-flutter-",
+                "https://play.google.com/store/apps/details?id=com.yourshop.amitapps&hl=en&gl=US"),
+          ),
+        ],
+      ),
     );
   }
 }
 
-class ProjectWidget extends StatelessWidget {
-  final String title;
-
-  const ProjectWidget({Key key, @required this.title}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return title.text.bold.white.xl.wide.center
-        .make()
-        .box
-        .p8
-        .roundedLg
-        .neumorphic(color: Vx.green900, elevation: 5, curve: VxCurve.flat)
-        .alignCenter
-        .square(200)
-        .make()
-        .p16();
-  }
+Widget myproject(String imageurl, String title, String text, String github,
+    String playstore) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Card(
+        elevation: 10,
+        child: Container(
+          color: Colors.transparent,
+          height: 200,
+          width: 180,
+          child: Image(
+            image: AssetImage(imageurl),
+          ),
+        ),
+      ),
+      SizedBox(width: 10),
+      Container(
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              title,
+              style:
+                  TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            child: Text(
+              text,
+              style: TextStyle(color: Colors.white, fontSize: 10),
+            ),
+          ),
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  launch(github);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(AntDesign.github, color: Colors.white),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  launch(playstore);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(AntDesign.link, color: Colors.white),
+                ),
+              )
+            ],
+          )
+        ],
+      ))
+    ],
+  );
 }
-
-//Vx.purple700
-
-
-
-
-
